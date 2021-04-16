@@ -40,8 +40,7 @@ char	*ft_strcat(char *dest, char *src)
 }
 
 /*
-** Retorna o tamanho total que a string joinada tera
-** quando for criada.
+** Retorna o tamanho total que a string joinada tera quando for criada.
 ** O tamanho calculado considera os separadores no meio da string
 */
 
@@ -65,13 +64,17 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*result;
 
 	if (size <= 0)
-		return (char *)malloc(sizeof(char));
-	total_size = 0;
+	{
+		result = (char *)malloc(sizeof(char));
+		result[0] = '\0';
+		return (result);
+	}
 	total_size = ft_total_length(size, strs, sep);
-	result = (char *)malloc(sizeof(char) * total_size);
+	result = (char *)malloc(sizeof(char) * (total_size + 1));
 	if (!result)
 		return (0);
 	i = -1;
+	result[0] = 0;
 	while (++i < size - 1)
 	{
 		ft_strcat(result, strs[i]);
