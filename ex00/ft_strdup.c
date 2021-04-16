@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <errno.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -32,12 +31,9 @@ char	*ft_strdup(char *src)
 	char			*dest;
 
 	srclen = ft_strlen(src);
-	dest = malloc(sizeof(char) * srclen);
+	dest = malloc(sizeof(char) * srclen + 1);
 	if (dest == NULL)
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
 	i = 0;
 	while (i < srclen)
 	{
