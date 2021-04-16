@@ -73,8 +73,8 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	result = (char *)malloc(sizeof(char) * (total_size + 1));
 	if (!result)
 		return (0);
-	i = -1;
 	result[0] = 0;
+	i = -1;
 	while (++i < size - 1)
 	{
 		ft_strcat(result, strs[i]);
